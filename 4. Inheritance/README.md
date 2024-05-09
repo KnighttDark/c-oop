@@ -27,4 +27,7 @@
 - Trong C++, một lớp chỉ có thể kế thừa từ một lớp cha duy nhất.
 - Để giải quyết vấn đề này, C++ cung cấp một cơ chế khác để thực hiện đa thừa kế, đó là Interface.
 
-- 
+# Multi Level Inheritance
+- Multi Level Inheritance là một lớp kế thừa từ một lớp cha, sau đó lớp con kế thừa từ lớp đó.
+- Multi Level Inheritance giúp tạo ra một cấu trúc phân cấp giữa các lớp.
+- Lỗi tiềm ẩn: 

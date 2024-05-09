@@ -45,3 +45,6 @@ int main()
     delete taxi;
     return 0;
 }
+
+
+// Kế thừa nhiều mức

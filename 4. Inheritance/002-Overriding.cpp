@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-
+// Ghi đè
 class Vehicle
 {
 
