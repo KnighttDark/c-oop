@@ -25,7 +25,8 @@ public:
 
 int main()
 {
-
+    Woman *harriwon = new Woman;
+    harriwon->Introduce();
     return 0;
 }
 
