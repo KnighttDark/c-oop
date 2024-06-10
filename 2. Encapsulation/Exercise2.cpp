@@ -2,65 +2,36 @@
 #include <string>
 #include <vector>
 
-struct Location
+class Location
 {
+public:
     std::string street;
     std::string city;
     std::string localCode;
     std::vector<float> numbers;
+
+    Location(std::string street, std::string city, std::string localCode, std::vector<float> numbers)
+        : street(street), city(city), localCode(localCode), numbers(numbers) {}
 };
-
 class Employee
-{
-
+{  
 public:
     Employee(int id, std::string firstName, std::string lastName, int salary)
+        : id(id), firstName(firstName), lastName(lastName), salary(salary), location(location)
     {
-        this->id = id;
-        this->firstName = firstName;
-        this->lastName = lastName;
-        this->salary = salary;
         location.street = "Da Nang";
     }
+    /* Setter-----*/
+    void setId(int id) { this->id = id; }
+    void setfirstName(std::string firstName) { this->firstName = firstName; }
+    void setlastName(std::string lastName) { this->lastName = lastName; }
+    void setSalary(int salary) { this->salary = salary; }
 
-    void setId(int id)
-    {
-        this->id = id;
-    }
-
-    void setfirstName(std::string firstName)
-    {
-        this->firstName = firstName;
-    }
-
-    void setlastName(std::string lastName)
-    {
-        this->lastName = lastName;
-    }
-    void setSalary(int salary)
-    {
-        this->salary = salary;
-    }
-
-    int getId()
-    {
-        return this->id;
-    }
-
-    std::string getfirstName()
-    {
-        return this->firstName;
-    }
-
-    std::string getlastName()
-    {
-        return this->lastName;
-    }
-
-    int getSalary()
-    {
-        return this->salary;
-    }
+    /* Getter-----*/
+    int getId() { return this->id; }
+    std::string getfirstName() { return this->firstName; }
+    std::string getlastName() { return this->lastName; }
+    int getSalary() { return this->salary; }
 
     void display()
     {
@@ -82,15 +53,10 @@ private:
 int main()
 {
     Location *location = new Location{"Au Co", "Hoa Khanh", "2002", {1, 5, 7, 9}};
-
     Employee *employee_1 = new Employee(1, "Tran Dang", "Thanh", 5000);
-
-    // employee_1->setNumbers({1, 5, 6, 7, 6});
     employee_1->display();
 
     std::cout << "\n";
-    // Update
-    // employee_1->setId(2);
     employee_1->display();
 
     return 0;

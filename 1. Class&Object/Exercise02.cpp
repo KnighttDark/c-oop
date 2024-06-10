@@ -52,26 +52,19 @@ public:
     std::vector<float> score;
 
     Student(int id, int age, float height, float weight, std::string name, std::string address, std::vector<float> score)
-    {
-        this->id = id;
-        this->age = age;
-        this->height = height;
-        this->weight = weight;
-        this->name = name;
-        this->address = address;
-        this->score = score;
-    }
+        : id(id), age(age), name(name), address(address), height(height), weight(weight), score(score) {}
 
-    void introduce()
+    void Introduce()
     {
         std::cout << "My name is " << name << "\n";
         std::cout << "I am " << age << " years old\n";
         std::cout << "I am from " << address << "\n";
+        std::cout << "\n";
     }
 
     void showScore() const
     {
-        std::cout << "Score of 8 subjects:\n ";
+        std::cout << "Score of 8 subjects:\n";
         for (int i = 0; i < score.size(); i++)
         {
             std::cout << score[i] << " ";
@@ -167,7 +160,7 @@ public:
     {
         for (int i = 0; i < student.size(); i++)
         {
-            student[i]->introduce();
+            student[i]->Introduce();
         }
     }
 
@@ -179,43 +172,42 @@ public:
 
 int main()
 {
-
     std::vector<float> score = {8, 9, 10, 7, 6, 8, 9, 10};
     Student *student = new Student(1, 20, 1.7, 60, "Nguyen Van A", "Ha Noi", score);
-    student->introduce();
+    student->Introduce();
 
-    // Create a student
+    /* Create a new student-----*/
     std::vector<float> score1 = {8, 9, 10, 7, 6, 8, 9, 10};
     Student *student1 = new Student(2, 21, 1.7, 60, "Nguyen Van B", "Nghe An", score1);
 
-    // Show infor new student
-    student1->introduce();
+    /* Show infor new student-----*/
+    student1->Introduce();
 
-    // Create a class and add  student
+    /* Add student-----*/
     std::vector<Student *> students;
     students.push_back(student);
 
+    /* Create class----*/
     Grade *grade = new Grade("10A1", students, student, 1);
     grade->addStudent(student1);
 
-    // show all student in class
+    /* Show all student in class-----*/
     std::cout << "Number of student in class:"
               << " " << grade->countStudent() << "\n";
-    std::cout << "All student in class:"
-              << " " << grade->classID << "\n";
+    std::cout << "\n";
     grade->showStudent();
 
-    // Remove student
+    /* Remove student*/
     grade->removeStudent(1);
 
-    // show all student in class
+    /* Show all student in class-----*/
     std::cout << "Number of student in class:"
               << " " << grade->countStudent() << "\n";
-    std::cout << "All student in class:"
-              << " " << grade->classID << "\n";
+
+    std::cout << "\n";
     grade->showStudent();
 
-    // Update info student
+    /* Update Infor-----*/
     grade->modifyStudent(2, 22, 1.8, 70, "Nguyen Van C", "Ha Noi", score);
     return 0;
 }

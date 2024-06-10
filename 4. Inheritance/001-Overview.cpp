@@ -3,41 +3,25 @@
 
 class Vehicle
 {
-
 public:
-    void setModelName(std::string modelName)
-    {
-        this->modelName = modelName;
-    }
+    Vehicle() {}
+    Vehicle(std::string modelName, std::string version) : modelName(modelName), version(version) {}
 
-    std::string getModelName()
-    {
-        return modelName;
-    }
-
-    void setVersion(std::string version)
-    {
-        this->version = version;
-    }
-
-    std::string getVersion()
-    {
-        return version;
-    }
+    void setModelName(std::string modelName) { this->modelName = modelName; }
+    void setVersion(std::string version) { this->version = version; }
+    std::string getModelName() { return modelName; }
+    std::string getVersion() { return version; }
 
 private:
     std::string modelName;
     std::string version;
 };
-
 class Taxi : public Vehicle
+/* Inheritance -----*/
 {
+public:
+private:
 };
-
-class Bus : public Vehicle
-{
-};
-
 int main()
 {
 

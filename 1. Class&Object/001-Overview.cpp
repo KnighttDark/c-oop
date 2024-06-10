@@ -5,14 +5,8 @@ class Student
 {
 public:
     std::string name;
-
-    void Introduce()
-    {
-    }
-
-    void Infor()
-    {
-    }
+    void Introduce() {}
+    void Infor() {}
 
 private:
     int age;
@@ -22,7 +16,6 @@ int main()
 {
     Student *s1 = new Student;
     s1->name = "Tran Dang Thanh";
-
     std::cout << s1->name << std::endl;
 
     return 0;

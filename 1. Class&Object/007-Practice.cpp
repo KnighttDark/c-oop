@@ -8,13 +8,12 @@ public:
     std::string content;
     std::string sender;
 };
-
 class Student
 {
 public:
     std::string name;
-
-    Destination *Introduce(std::string language, int isAge)
+    Destination *Introduce(std::string language, int isAge) /* Case 1-----*/
+    /* Return a class-----*/
     {
         Destination *des = new Destination;
         des->distance = 0;
@@ -24,7 +23,7 @@ public:
             des->distance += i;
         }
 
-        std::cout << des->distance << std::endl;
+        std::cout << "Distance:" << des->distance << std::endl;
 
         if (language == "Vietnam")
         {
@@ -45,27 +44,36 @@ public:
         return des;
     }
 
-    Destination *Introduce(int count)
+    Destination *Introduce(int count) /* Case 2-----*/
     {
         Destination *des = new Destination;
         for (int i = 0; i < count; i++)
         {
-            des->content += "Hello" + std::to_string(i) + "\n";
+            des->content += "Counter: " + std::to_string(i) + "\n";
         }
         return des;
     }
-    // Ví dụ về nạp chồng toán tử
-    Destination *Introduce(std::string language)
+
+    /* Overload Operator-----*/
+    Destination *Introduce(std::string language) /* Case 3-----*/
     {
         Destination *des = new Destination;
-        des->content = "Hello! My name is ";
+        des->content = "What's up!";
     }
 };
 
 int main()
 {
     Student *student1 = new Student;
-    Destination *des = student1->Introduce("Vietnam", 20);
+    /* Overload Operator-----*/
+    Destination *des = student1->Introduce("Vietnam", 20); /* Case 1-----*/
+
+    /* Overload Operator-----*/
+    Destination *des = student1->Introduce(20); /* Case 2-----*/
+
+    /* Overload Operator-----*/
+    Destination *des = student1->Introduce("English"); /* Case 3-----*/
+
     std::cout << des->content;
 
     return 0;

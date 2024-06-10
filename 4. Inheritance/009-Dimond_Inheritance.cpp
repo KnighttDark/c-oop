@@ -5,24 +5,12 @@ class Vehicle
 {
 
 public:
-    Vehicle()
-    {
-        std::cout << "Vehicle is running\n";
-    }
-    void setModelName(std::string modelName)
-    {
-        this->modelName = modelName;
-    }
+    Vehicle() { std::cout << "Vehicle is running\n"; }
+    void setModelName(std::string modelName) { this->modelName = modelName; }
 
-    std::string getModelName()
-    {
-        return modelName;
-    }
+    std::string getModelName() { return modelName; }
 
-    void run()
-    {
-        std::cout << "Vehicle is running\n";
-    }
+    void run() { std::cout << "Vehicle is running\n"; }
 
 private:
     std::string modelName;
@@ -31,10 +19,7 @@ private:
 class Car : public Vehicle
 {
 public:
-    Car()
-    {
-        std::cout << "Car is running\n";
-    }
+    Car() { std::cout << "Car is running\n"; }
 
 private:
     std::string ownerName;
@@ -43,10 +28,7 @@ private:
 class Truck : public Vehicle
 {
 public:
-    Truck()
-    {
-        std::cout << "Truck is running\n";
-    }
+    Truck() { std::cout << "Truck is running\n"; }
 
 private:
     int expirationYear;

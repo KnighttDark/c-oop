@@ -11,10 +11,8 @@ struct BodySize
 class Student
 {
 public:
-    Student(std::string name, int age)
+    Student(std::string name, int age) : name(name), age(age)
     {
-        this->name = name;
-        this->age = age;
         bodySize.height = 1.7;
         bodySize.weight = 68;
         bodySize.around3[0] = 90;
@@ -26,21 +24,11 @@ public:
     {
         std::cout << "Heigh: " << bodySize.height << std::endl;
         std::cout << "Weight: " << bodySize.weight << std::endl;
-        std::cout << "Around 3: " << bodySize.around3[0] << " " << bodySize.around3[1] << " " << bodySize.around3[2] << std::endl;
-    }
-
-    void Infor()
-    {
-    }
-
-    void setAge(int age)
-    {
-        this->age = age;
-    }
-
-    int getAge()
-    {
-        return this->age;
+        std::cout << "Around 3: "
+                  << bodySize.around3[0]
+                  << " " << bodySize.around3[1]
+                  << " " << bodySize.around3[2]
+                  << std::endl;
     }
 
 private:
@@ -53,8 +41,6 @@ private:
 int main()
 {
     Student *s1 = new Student("Huy", 20);
-    s1->setAge(21);
-    std::cout << s1->getAge() << std::endl;
     s1->Introduce();
     return 0;
 }

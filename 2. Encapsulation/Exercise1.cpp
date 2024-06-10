@@ -11,64 +11,20 @@ private:
     float price;
 
 public:
-    Hospital(std::string idPatient, std::string fullName, std::string date, std::string idDisease, float price)
-    {
-        this->idPatient = idPatient;
-        this->fullName = fullName;
-        this->date = date;
-        this->idDisease = idDisease;
-        this->price = price;
-    }
+    Hospital(std::string iP, std::string fn, std::string d, std::string iD, float p)
+        : idPatient(iP), fullName(fn), date(d), idDisease(iD), price(p) {}
 
-    void setidPatient(std::string idPatient)
-    {
-        this->idPatient = idPatient;
-    }
+    void setidPatient(std::string iP) { this->idPatient = iP; }
+    void setFullName(std::string fn) { this->fullName = fn; }
+    void setDate(std::string d) { this->date = d; }
+    void setIdDisease(std::string iD) { this->idDisease = iD; }
+    void setPrice(float p) { this->price = p; }
 
-    void setFullName(std::string fullName)
-    {
-        this->fullName = fullName;
-    }
-
-    void setDate(std::string date)
-    {
-        this->date = date;
-    }
-
-    void setIdDisease(std::string idDisease)
-    {
-        this->idDisease = idDisease;
-    }
-
-    void setPrice(float price)
-    {
-        this->price = price;
-    }
-
-    std::string getIdPatient()
-    {
-        return this->idPatient;
-    }
-
-    std::string getFullName()
-    {
-        return this->fullName;
-    }
-
-    std::string getDate()
-    {
-        return this->date;
-    }
-
-    std::string getIdDisease()
-    {
-        return this->idDisease;
-    }
-
-    float getPrice()
-    {
-        return this->price;
-    }
+    std::string getIdPatient() { return this->idPatient; }
+    std::string getFullName() { return this->fullName; }
+    std::string getDate() { return this->date; }
+    std::string getIdDisease() { return this->idDisease; }
+    float getPrice() { return this->price; }
 
     void showInfo()
     {
@@ -85,5 +41,6 @@ int main()
     Hospital *h1 = new Hospital("123", "Huy", "12/12/2021", "456", 1000);
     h1->showInfo();
 
+    delete h1;
     return 0;
 }

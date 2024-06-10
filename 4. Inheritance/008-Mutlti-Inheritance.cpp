@@ -5,20 +5,11 @@ class Vehicle
 {
 
 public:
-    void setModelName(std::string modelName)
-    {
-        this->modelName = modelName;
-    }
+    void setModelName(std::string modelName) { this->modelName = modelName; }
 
-    std::string getModelName()
-    {
-        return modelName;
-    }
+    std::string getModelName() { return modelName; }
 
-    void run()
-    {
-        std::cout << "Vehicle is running\n";
-    }
+    void run() { std::cout << "Vehicle is running\n"; }
 
 private:
     std::string modelName;
@@ -27,14 +18,8 @@ private:
 class House
 {
 public:
-    void setArea(float area)
-    {
-        this->area = area;
-    }
-    float getArea()
-    {
-        return area;
-    }
+    void setArea(float area) { this->area = area; }
+    float getArea() { return area; }
 
 private:
     float area;

@@ -53,7 +53,7 @@ int main()
     return 0;
 }
 
-/*ww
+/*
     Hàm static trong class C++
     + Không cần tạo đối tượng để gọi hàm
     + Hàm static không thể truy cập đến biến thành viên không phải static

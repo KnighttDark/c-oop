@@ -4,29 +4,20 @@
 class Woman
 {
 public:
-    std::string name;
+    std::string fullName;
     int age;
-
-    // Hàm khởi tạo
     Woman()
     {
         std::cout << "Created a new woman\n";
-        name = "Unknown";
+        fullName = "Unknown";
         age = 0;
     }
 
-    Woman(std::string fn, int a)
+    Woman(std::string fn, int a) : fullName(fn), age(a)
     {
         std::cout << "Created a new woman\n";
-        name = fn;
-        age = a;
     }
-    void introduce()
-    {
-        std::cout << "My name is " << name << "\n";
-
-        std::cout << "I am " << age << " years old\n";
-    }
+    void introduce() {}
 
 private:
     int weight;
@@ -34,13 +25,9 @@ private:
 
 int main()
 {
-    // Cấp phát động
     Woman *hariwon = new Woman("Hariwon", 30);
     hariwon->introduce();
-
     std::cout << "\n";
-    // Cấp phát tĩnh
-    Woman minhha("Minh Ha", 25);
-    minhha.introduce();
+
     return 0;
 }

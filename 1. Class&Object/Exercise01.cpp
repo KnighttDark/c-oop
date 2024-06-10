@@ -1,5 +1,4 @@
 /*
-
 Thiết kế class thể hiện một đối tượng Học sinh trong thực tế
 # Các thuộc tính và data type tương ứng
     Mã học sinh - int
@@ -33,17 +32,9 @@ public:
     std::vector<float> score;
 
     Student(int id, int age, std::string name, std::string address, float height, float weight, std::vector<float> score)
-    {
-        this->id = id;
-        this->age = age;
-        this->name = name;
-        this->address = address;
-        this->height = height;
-        this->weight = weight;
-        this->score = score;
-    }
+        : id(id), age(age), name(name), address(address), height(height), weight(weight), score(score) {}
 
-    void introduce()
+    void Introduce()
     {
         std::cout << "My name is " << name << "\n";
         std::cout << "I am " << age << " years old\n";
@@ -52,7 +43,7 @@ public:
 
     void showScore() const
     {
-        std::cout << "Score of 8 subjects:\n ";
+        std::cout << "Score of 8 subjects:\n";
         for (int i = 0; i < score.size(); i++)
         {
             std::cout << score[i] << " ";
@@ -91,10 +82,11 @@ private:
 
 int main()
 {
-    std::vector<float> score = {8, 7, 6, 9, 8, 7, 8, 9, 10,11};
-    Student *student_1 = new Student(1, 18, "Nguyen Van A", "Ha Noi", 1.75, 60, score);
-    student_1->introduce();
+    std::vector<float> score = {8, 7, 6, 9, 8, 7, 8, 9, 10, 11};
+    Student *student_1 = new Student(1, 18, "Tran Dang Thinh", "Ha Noi", 1.75, 60, score);
+    student_1->Introduce();
     student_1->showScore();
+    std::cout << "\n";
     student_1->showAcademicPerformance();
 
     delete student_1;

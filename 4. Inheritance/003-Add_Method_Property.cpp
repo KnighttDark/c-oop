@@ -1,6 +1,7 @@
+/* Thêm thuộc tính hoặc phương thức-----*/
 #include <iostream>
 #include <string>
-// Ghi đè
+
 class Vehicle
 {
 
@@ -20,19 +21,27 @@ private:
 
 class Taxi : public Vehicle
 {
+
 public:
     void run()
     {
-        Vehicle::run(); /* Overriding -----*/
+
+        Vehicle::run();
         std::cout << "It's a Taxi" << std::endl;
-        /* Vừa kế thừa, vừa có thể bổ sung thông tin-----*/
     }
 
+    /* Overloading-----*/
+    void run(int km) { kmCounter = km; }
+    int caculateFee() { return kmCounter * 10000; }
+
 private:
+    int kmCounter = 0;
 };
 int main()
 {
     Taxi *taxi = new Taxi();
     taxi->run();
+    taxi->run(100);
+    std::cout << "Taxi fee: " << taxi->caculateFee() << std::endl;
     return 0;
 }
