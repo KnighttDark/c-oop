@@ -17,15 +17,9 @@
 class Vehicle
 {
 public:
-    Vehicle()
-    {
-        std::cout << "Vehicle constructor" << std::endl;
-    }
+    Vehicle() { std::cout << "Vehicle constructor" << std::endl; }
 
-    void run()
-    {
-        std::cout << "Vehicle is running" << std::endl;
-    }
+    void run() { std::cout << "Vehicle is running" << std::endl; }
 };
 
 class Car : public Vehicle
@@ -37,10 +31,7 @@ public:
         ownerName = "None";
     }
 
-    void run()
-    {
-        std::cout << "Car of " << ownerName << " is running" << std::endl;
-    }
+    void run() { std::cout << "Car of " << ownerName << " is running" << std::endl; }
 
 private:
     std::string ownerName;
@@ -57,11 +48,10 @@ int main()
     // ((Car *)vehicle)->run(); // Down-casting
 
     Car *car = new Car();
-    Vehicle *vehicle = car;  // Up-casting
+    Vehicle *vehicle = car; // Up-casting
     // Ép kiểu qua 1 con trỏ khác, những vẫn trên đối tượng đó
     ((Car *)vehicle)->run(); // Down-casting
 }
-
 
 /*
     Nếu không override hàm run() của lớp cha thì khi ép kiểu từ lớp con về lớp cha, hàm run() của lớp cha sẽ được gọi

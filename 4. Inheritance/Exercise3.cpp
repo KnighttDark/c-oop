@@ -6,20 +6,10 @@ class Ticket
 public:
     Ticket() {}
     Ticket(std::string nameFlight, std::string dateFlight, float price)
-    {
-        this->nameFlight = nameFlight;
-        this->dateFlight = dateFlight;
-        this->price = price;
-    }
-    void setNameFlight(std::string nameFlight)
-    {
-        this->nameFlight = nameFlight;
-    }
+        : nameFlight(nameFlight), dateFlight(dateFlight), price(price) {}
 
-    std::string getnameFlight()
-    {
-        return this->nameFlight;
-    }
+    void setNameFlight(std::string nameFlight) { this->nameFlight = nameFlight; }
+    std::string getnameFlight() { return this->nameFlight; }
 
     void Display()
     {
@@ -28,7 +18,7 @@ public:
         std::cout << "Price of Flight: " << price << "\n";
     }
 
-private:
+protected:
     std::string nameFlight;
     std::string dateFlight;
     float price;
@@ -39,15 +29,10 @@ class Person
 public:
     Person() {}
     Person(std::string fullName, std::string sex, int age)
-    {
-        this->fullName = fullName;
-        this->sex = sex;
-        this->age = age;
-    }
+        : fullName(fullName), sex(sex), age(age) {}
 
     void Infor()
     {
-
         std::cout << "Fullname:" << fullName << "\n";
         std::cout << "Sex:" << sex << "\n";
         std::cout << "Age:" << age << "\n";
@@ -63,14 +48,10 @@ class Client : public Person, public Ticket
 {
 public:
     Client() {}
-    Client(std::string fullName, std::string sex, int age, std::string id, int numberOfTickets)
-    {
-        this->fullName = fullName;
-        this->sex = sex;
-        this->age = age;
-        this->id = id;
-        this->numberOfTickets = numberOfTickets;
-    }
+    Client(std::string fullName, std::string sex, int age, std::string id, int numberOfTickets,
+           std::string nameFlight, std::string dateFlight, float price)
+        : Person(fullName, sex, age), Ticket(nameFlight, dateFlight, price), id(id), numberOfTickets(numberOfTickets) {}
+
     void Infor()
     {
         Ticket::Display();
@@ -86,7 +67,7 @@ private:
 
 int main()
 {
-    Client *c = new Client("THHH", "Nam", 30, "AAAA", 3, "Flight ABC123", "2024-05-10", 250.0);
-    c->Infor();
+    Client *client_1 = new Client("Tran Dang Thanh", "Male", 22, "20ete", 3, "VN Airline", "2024-05-10", 250.0);
+    client_1->Infor();
     return 0;
 }

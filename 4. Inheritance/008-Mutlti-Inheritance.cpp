@@ -24,9 +24,13 @@ public:
 private:
     float area;
 };
-// Đa kế thừa
+/* Đa kế thừa-----*/
 class Mobihome : public Vehicle, public House
 {
+    /* Có các phương thức của class Vehicle và House */
+    /* Có các tính chất như Overriding, Access modifier*/
+    /* Lỗi ambiguous*/
+    /* Kế thừa 2 class nhưng có phương thức giống nhau*/
 public:
 private:
 };
@@ -41,9 +45,3 @@ int main()
 
     return 0;
 }
-// Đa kế thừa
-// Một thằng con nhưng có thể kế thừa được nhiều ông
-/*
-    + Lỗi nhọc nhằn: 2 classParent có chung hàm giống nhau
-    + Dimond inheritance
-*/

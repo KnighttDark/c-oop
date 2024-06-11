@@ -17,19 +17,13 @@
 class Vehicle
 {
 public:
-    virtual void run()
-    {
-        std::cout << "Vehicle is running" << std::endl;
-    }
+    virtual void run() { std::cout << "Vehicle is running" << std::endl; }
 };
 
 class Car : public Vehicle
 {
 public:
-    void run()
-    {
-        std::cout << "Car of is running" << std::endl;
-    }
+    void run() { std::cout << "Car of is running" << std::endl; }
 
 private:
     std::string ownerName;
@@ -38,19 +32,13 @@ private:
 class Truck : public Vehicle
 {
 public:
-    void run()
-    {
-        std::cout << "Truck is running" << std::endl;
-    }
+    void run() { std::cout << "Truck is running" << std::endl; }
 };
 
 class Motorbike : public Vehicle
 {
 public:
-    void run() override
-    {
-        std::cout << "Motorbike is running" << std::endl;
-    }
+    void run() override { std::cout << "Motorbike is running" << std::endl; }
 };
 
 int main()
@@ -73,5 +61,7 @@ int main()
 };
 
 /*
-    override: 
+    Quản lý nhiều đối tượng chung lớp dẫn xuất
+    Để một con trỏ ở lớp cơ sở gọi 1 function ở lớp dẫn xuất
+    thì thêm từ khóa "virtual" ở lớp cơ sở
 */

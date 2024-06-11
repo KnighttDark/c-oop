@@ -38,7 +38,6 @@ private:
 int main()
 {
     Taxi *taxi = new Taxi("Toyota");
-    // Taxi *taxi2 = new Taxi("Suzuki");
     taxi->start();
     return 0;
 }

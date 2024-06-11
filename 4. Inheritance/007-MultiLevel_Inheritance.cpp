@@ -7,16 +7,25 @@ class Vehicle
 public:
     void setModelName(std::string modelName) { this->modelName = modelName; }
     std::string getModelName() { return modelName; }
-    Vehicle() { std::cout << "Delete vehicle \n"; }
+    Vehicle() { std::cout << "Create vehicle \n"; }
 
 private:
     std::string modelName;
 };
 
-class Taxi : public Vehicle
+class Car : public Vehicle
 {
 public:
-    Taxi() { std::cout << "Delete taxi \n"; }
+    Car() { std::cout << "Create car \n"; }
+
+private:
+    std::string ownerName;
+};
+
+class Taxi : public Car
+{
+public:
+    Taxi() { std::cout << "Create taxi \n"; }
 
 private:
 };
@@ -28,4 +37,4 @@ int main()
     return 0;
 }
 
-// Kế thừa nhiều mức
+/* Kế thừa đa mức----*/

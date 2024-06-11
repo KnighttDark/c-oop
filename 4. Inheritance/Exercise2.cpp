@@ -25,12 +25,7 @@ class Book
 {
 public:
     Book() {}
-    Book(std::string publisher, int YearofRelease)
-    {
-        this->publisher = publisher;
-        this->YearofRelease = YearofRelease;
-    }
-
+    Book(std::string publisher, int YearofRelease) : publisher(publisher), YearofRelease(YearofRelease) {}
     void displayInfo()
     {
         std::cout << "Publisher:" << publisher << "\n";
@@ -46,12 +41,8 @@ class StudyBook : public Book
 {
 public:
     StudyBook() {}
-    StudyBook(std::string publisher, int YearofRelease, std::string subject)
-    {
-        this->publisher = publisher;
-        this->YearofRelease = YearofRelease;
-        this->subject = subject;
-    }
+    StudyBook(std::string publisher, int YearofRelease, std::string subject) : Book(publisher, YearofRelease), subject(subject) {}
+    /* :Book: Member Initializer List----*/
 
     void displayInfo()
     {
@@ -68,12 +59,7 @@ class TextBook : public StudyBook
 public:
     TextBook() {}
     TextBook(std::string publisher, int YearofRelease, std::string subject, int numbersOfSchools)
-    {
-        this->publisher = publisher;
-        this->YearofRelease = YearofRelease;
-        this->subject = subject;
-        this->numbersOfSchools = numbersOfSchools;
-    }
+        : StudyBook(publisher, YearofRelease, subject), numbersOfSchools(numbersOfSchools) {}
 
     void displayInfo()
     {
@@ -89,13 +75,7 @@ class ExerciseBook : public TextBook
 {
 public:
     ExerciseBook(std::string publisher, int YearofRelease, std::string subject, int numbersOfSchools, std::string levelStudent)
-    {
-        this->publisher = publisher;
-        this->YearofRelease = YearofRelease;
-        this->subject = subject;
-        this->numbersOfSchools = numbersOfSchools;
-        this->levelStudent = levelStudent;
-    }
+        : TextBook(publisher, YearofRelease, subject, numbersOfSchools), levelStudent(levelStudent) {}
 
     void displayInfo()
     {
@@ -112,13 +92,7 @@ class StoryBook : public Book
 public:
     StoryBook() {}
     StoryBook(std::string publisher, int YearofRelease, std::string author, std::string translator, int ageLimit)
-    {
-        this->publisher = publisher;
-        this->YearofRelease = YearofRelease;
-        this->author = author;
-        this->translator = translator;
-        this->ageLimit = ageLimit;
-    }
+        : Book(publisher, YearofRelease), ageLimit(ageLimit), author(author), translator(translator) {}
 
     void displayInfo()
     {
@@ -138,14 +112,7 @@ class Novel : public StoryBook
 {
 public:
     Novel(std::string publisher, int YearofRelease, std::string author, std::string translator, int ageLimit, int numberChapters)
-    {
-        this->publisher = publisher;
-        this->YearofRelease = YearofRelease;
-        this->author = author;
-        this->translator = translator;
-        this->ageLimit = ageLimit;
-        this->numberChapters = numberChapters;
-    }
+        : StoryBook(publisher, YearofRelease, author, translator, ageLimit), numberChapters(numberChapters) {}
 
     void displayInfo()
     {
@@ -161,15 +128,7 @@ class Novellanguage : public StoryBook
 {
 public:
     Novellanguage(std::string publisher, int YearofRelease, std::string author, std::string translator, int ageLimit, std::string nameFilm)
-    {
-        this->publisher = publisher;
-        this->YearofRelease = YearofRelease;
-        this->author = author;
-        this->translator = translator;
-        this->ageLimit = ageLimit;
-        this->nameFilm = nameFilm;
-    }
-
+        : StoryBook(publisher, YearofRelease, author, translator, ageLimit), nameFilm(nameFilm) {}
     void displayInfo()
     {
         StoryBook::displayInfo();
@@ -211,8 +170,3 @@ int main()
     novellanguage->displayInfo();
     return 0;
 }
-
-/*
-    Trong class StydBook và class StoryBook cần khởi tạo thêm constructor mặc định vì không thể truy cập trực tiếp đến constructor của class cha
-
-*/

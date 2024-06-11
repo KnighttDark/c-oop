@@ -19,11 +19,9 @@ class Employee
 {
 public:
     Employee(std::string fullName, float baseSalary, int experience)
-    {
-        this->fullName = fullName;
-        this->baseSalary = baseSalary;
-        this->experience = experience;
-    }
+        : fullName(fullName), baseSalary(baseSalary), experience(experience) {}
+
+    /* Virtual function */
     virtual float calculateSalary() = 0;
     virtual void display()
     {
@@ -42,10 +40,7 @@ class HR : public Employee
 {
 public:
     HR(std::string fullName, float baseSalary, int experience) : Employee(fullName, baseSalary, experience) {}
-    float calculateSalary() override
-    {
-        return baseSalary;
-    }
+    float calculateSalary() override { return baseSalary; }
 
 private:
 };
@@ -54,23 +49,15 @@ class Programmer : public Employee
 {
 public:
     Programmer(std::string fullName, float baseSalary, int experience) : Employee(fullName, baseSalary, experience) {}
-    float calculateSalary() override
-    {
-        return baseSalary + baseSalary * 0.15;
-    }
+    float calculateSalary() override { return baseSalary + baseSalary * 0.15; }
 };
 
 class Sale : public Employee
 {
 public:
-    Sale(std::string fullName, float baseSalary, int experience, int contract) : Employee(fullName, baseSalary, experience)
-    {
-        this->contract = contract;
-    }
-    float calculateSalary() override
-    {
-        return baseSalary + baseSalary * contract / 100;
-    }
+    Sale(std::string fullName, float baseSalary, int experience, int contract) : Employee(fullName, baseSalary, experience), contract(contract) {}
+
+    float calculateSalary() override { return baseSalary + baseSalary * contract / 100; }
 
     void display() override
     {
@@ -117,7 +104,9 @@ int main()
     Company *company = new Company();
 
     company->addEmployee(new HR("HR", 1000, 5));
+
     company->addEmployee(new Programmer("Programmer", 1000, 5));
+
     company->addEmployee(new Sale("Sale", 1000, 5, 10));
 
     std::cout << "Employees:\n";

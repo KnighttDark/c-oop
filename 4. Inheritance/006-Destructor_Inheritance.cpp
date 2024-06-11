@@ -29,3 +29,9 @@ int main()
     delete taxi;
     return 0;
 }
+
+/*Output:-----*/
+/*
+    Delete taxi
+    Delete vehicle
+*/
